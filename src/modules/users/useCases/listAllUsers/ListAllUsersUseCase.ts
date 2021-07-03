@@ -7,10 +7,10 @@ interface IRequest {
 
 class ListAllUsersUseCase {
   constructor(private usersRepository: IUsersRepository) { }
-  // todo
+
   execute({ user_id }: IRequest): User[] {
     const isUserAdmin = this.usersRepository.findById(user_id);
-    if (!isUserAdmin.admin) {
+    if (!isUserAdmin.admin || !isUserAdmin) {
       throw new Error("User is not an admin.");
     }
     const users = this.usersRepository.list();

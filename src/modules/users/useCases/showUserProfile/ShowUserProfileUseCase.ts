@@ -11,7 +11,7 @@ class ShowUserProfileUseCase {
   execute({ user_id }: IRequest): User {
     const user = this.usersRepository.findById(user_id);
     if (!user) {
-      throw new Error("User doest not exists.");
+      throw new Error("User doesnt not exists.");
     }
     return user;
   }
